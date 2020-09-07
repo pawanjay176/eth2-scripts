@@ -17,6 +17,8 @@ def check():
             for i in range(1, 6):
                 if data[i]['status'] == 0:
                     print("validator:", validator, " missed attestation: ", data[i]['attesterslot'])
+                if data[i]['attesterslot'] % 32 == 0 or data[i]['attesterslot'] % 32 == 1:
+                    print("validator: ", validator, "on epoch boundary: ", data[i]['attesterslot'])
         print("Completed check, sleeping")
         time.sleep(interval)
 check()
